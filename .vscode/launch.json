@@ -6,6 +6,14 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Attach LSP",
+      "localRoot": "${workspaceRoot}",
+      "port": 6010,
+      "remoteRoot": "${workspaceRoot}",
+      "request": "attach",
+      "type": "node"
+    },
+    {
       "name": "Run Extension",
       "type": "extensionHost",
       "request": "launch",

@@ -4,7 +4,7 @@
     "url": "https://github.com/TentaShion/ExVSC-XcodeGen/issues"
   },
   "categories": [
-    "Other"
+    "Linters"
   ],
   "displayName": "XcodeGen",
   "description": "Provide support for XcodeGen writing",
@@ -21,7 +21,11 @@
     "url": "https://github.com/TentaShion/ExVSC-XcodeGen"
   },
   "version": "0.0.1",
-  "dependencies": {},
+  "dependencies": {
+    "vscode-languageclient": "^6.1.3",
+    "vscode-languageserver": "^6.1.1",
+    "vscode-languageserver-textdocument": "^1.0.1"
+  },
   "devDependencies": {
     "@types/glob": "^7.1.1",
     "@types/node": "^13.11.0",
@@ -42,6 +46,8 @@
     "lint": "eslint src --ext ts",
     "watch": "tsc -watch -p ./"
   },
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:yaml"
+  ],
   "contributes": {}
 }
