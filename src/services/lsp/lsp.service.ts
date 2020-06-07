@@ -7,20 +7,7 @@ import { DocumentSelector, LanguageClient, LanguageClientOptions, ServerOptions,
  */
 export class LspService {
 
-  private client?: LanguageClient;
-
-
-  start(context: ExtensionContext) {
-    this.client = this.createClient(context);
-    this.client?.start();
-  }
-
-  stop(): Thenable<void> | undefined {
-    return this.client?.stop();
-  }
-
-
-  private createClient(context: ExtensionContext): LanguageClient {
+  createClient(context: ExtensionContext): LanguageClient {
     const serverPath = context.asAbsolutePath(
       join("out", "services", "lsp", "server.js")
     );
