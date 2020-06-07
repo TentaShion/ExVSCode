@@ -9,7 +9,7 @@ export class LspService {
 
   createClient(context: ExtensionContext): LanguageClient {
     const serverPath = context.asAbsolutePath(
-      join("out", "services", "lsp", "server.js")
+      join("out", "services", "lsp", "server", "main.js")
     );
     const serverOptions: ServerOptions = {
       run: {

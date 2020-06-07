@@ -1,4 +1,4 @@
-import { createConnection, Diagnostic, DiagnosticSeverity, DidChangeConfigurationNotification, InitializeParams, TextDocuments, TextDocumentSyncKind, CompletionItemKind, TextDocumentPositionParams, CompletionItem } from "vscode-languageserver";
+import { createConnection, Diagnostic, DiagnosticSeverity, InitializeParams, TextDocuments, TextDocumentSyncKind } from "vscode-languageserver";
 import { TextDocument } from "vscode-languageserver-textdocument";
 
 
