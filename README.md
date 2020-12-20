@@ -13,6 +13,15 @@
 --- | --- | --- | ---
 
 
+## Memo
+### 開発環境
+下記拡張機能を適用したVisual Studio Code で開発しています。
+
+* [EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=editorconfig.editorconfig)
+* [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+* [Visual Studio IntelliCode](https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode)
+
+
 ## References
 * [Lerna](https://lerna.js.org/)
 
