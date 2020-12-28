@@ -9,8 +9,9 @@
 
 
 ## Features
-パス | 機能名 | 識別名 | 概要
---- | --- | --- | ---
+パス | 概要
+--- | ---
+[pattern-viewer](./packages/pattern-viewer) | マンデルブロなどの模様を表示する拡張機能
 
 
 ## Memo

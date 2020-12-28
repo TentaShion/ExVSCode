@@ -1,0 +1,34 @@
+// A launch configuration that compiles the extension and then opens it inside a new window
+// Use IntelliSense to learn about possible attributes.
+// Hover to view descriptions of existing attributes.
+// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run Pattern Viewer",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/packages/pattern-viewer"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/packages/pattern-viewer/dist/**/*.js"
+      ],
+      "preLaunchTask": "Build Pattern Viewer(watch)"
+    },
+    {
+      "name": "Test Pattern Viewer",
+      "type": "extensionHost",
+      "request": "launch",
+      "args": [
+        "--extensionDevelopmentPath=${workspaceFolder}/packages/pattern-viewer",
+        "--extensionTestsPath=${workspaceFolder}/packages/pattern-viewer/out/test/suite/index"
+      ],
+      "outFiles": [
+        "${workspaceFolder}/packages/pattern-viewer/out/test/**/*.js"
+      ],
+      "preLaunchTask": "Test Pattern Viewer(watch)"
+    }
+  ]
+}
