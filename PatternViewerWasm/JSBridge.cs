@@ -11,7 +11,7 @@ namespace BlazorWasmModule
         [JSInvokable]
         public static Task<string> SayHello(string name)
         {
-            return Task.FromResult($"Hello {name}!");
+            return Task.FromResult($"Hello Blazor World, {name}!");
         }
     }
 }

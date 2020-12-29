@@ -10,6 +10,7 @@
   },
   "main": "./dist/extension.js",
   "name": "pattern-viewer",
+  "publisher": "shion",
   "version": "0.0.1",
   "activationEvents": [
     "onCommand:patternviewer.helloWorld"
@@ -26,6 +27,7 @@
     "compile": "webpack --devtool nosources-source-map --config ./build/node-extension.webpack.config.js",
     "lint": "eslint src --ext ts",
     "package": "webpack --mode production --config ./build/node-extension.webpack.config.js",
+    "package-vsce": "npx vsce package --out pattern-viewer.vsix --yarn",
     "pretest": "yarn run test-compile && yarn run lint",
     "test": "node ./out/test/runTest.js",
     "test-compile": "tsc -p ./",

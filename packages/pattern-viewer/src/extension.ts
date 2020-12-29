@@ -14,10 +14,47 @@ export function activate(context: vscode.ExtensionContext) {
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
   let disposable = vscode.commands.registerCommand('patternviewer.helloWorld', () => {
-    // The code you place here will be executed every time your command is executed
+    const panel = vscode.window.createWebviewPanel(
+      'patternviewer.helloWorld',
+      'PatternViewer',
+      vscode.ViewColumn.One,
+      {
+        enableScripts: true,
+        localResourceRoots: [
+          context.extensionUri
+        ]
+      },
+    );
 
-    // Display a message box to the user
-    vscode.window.showInformationMessage('Hello World from PatternViewer!');
+    const basePath = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'assets', 'wwwroot', '_framework'));
+    const wasmPath = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'assets', 'wwwroot', '_framework', 'blazor.webassembly.js'));
+
+    panel.webview.html = `
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      <title>PatternViewer</title>
+      <base href="${basePath}" />
+    </head>
+    <body>
+      <p id="target"></p>
+      <script>
+        const $ = document.getElementById('target');
+        $.textContent = location.href;
+      </script>
+      <script src="${wasmPath}" autostart="false"></script>
+      <script>
+        Blazor.start({}).then(() => {
+            DotNet.invokeMethodAsync('PatternViewerWasm', 'SayHello', '1st').then(result => {
+                $.textContent = result;
+            });
+        });
+      </script>
+    </body>
+    </html>
+    `;
   });
 
   context.subscriptions.push(disposable);
