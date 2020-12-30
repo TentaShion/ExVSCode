@@ -4,8 +4,7 @@
 
 
 ## Quick Start
-1. ```yarn install --frozen-lockfile```
-2. ```npx lerna bootstrap```
+```make``` コマンドが使えるなら、```make setup``` を実行してください。
 
 
 ## Features
