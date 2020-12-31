@@ -16,6 +16,20 @@
       "presentation": {
         "reveal": "never"
       },
+      "group": "build",
+      "dependsOn": [
+        "Deploy Pattern Viewer Wasm",
+      ],
+      "dependsOrder": "sequence",
+    },
+    {
+      "label": "Deploy Pattern Viewer Wasm",
+      "type": "shell",
+      "command": "make",
+      "args": [
+        "pattern-viewer-wasm",
+      ],
+      "isBackground": true,
       "group": "build"
     },
     {
@@ -28,7 +42,11 @@
       "presentation": {
         "reveal": "never"
       },
-      "group": "build"
+      "group": "build",
+      "dependsOn": [
+        "Deploy Pattern Viewer Wasm",
+      ],
+      "dependsOrder": "sequence",
     },
   ]
 }
