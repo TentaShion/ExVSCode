@@ -13,13 +13,13 @@
   "publisher": "shion",
   "version": "0.0.1",
   "activationEvents": [
-    "onCommand:patternviewer.helloWorld"
+    "onCommand:patternviewer.showHelloWasm"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "patternviewer.helloWorld",
-        "title": "Hello World"
+        "command": "patternviewer.showHelloWasm",
+        "title": "Hello World from Wasm!"
       }
     ]
   },
