@@ -24,8 +24,8 @@ export function activate(context: vscode.ExtensionContext) {
       },
     );
 
-    const basePath = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'assets', 'wwwroot', '_framework'));
-    const wasmPath = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'assets', 'wwwroot', '_framework', 'blazor.webassembly.js'));
+    const basePath = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'dist', 'wwwroot', '_framework'));
+    const wasmPath = panel.webview.asWebviewUri(vscode.Uri.joinPath(context.extensionUri, 'dist', 'wwwroot', '_framework', 'blazor.webassembly.js'));
 
     panel.webview.html = `
     <!DOCTYPE html>

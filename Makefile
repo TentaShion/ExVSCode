@@ -4,7 +4,7 @@ default: setup
 
 # PatternViewerWasm のデプロイ
 pattern-viewer-wasm:
-	dotnet publish PatternViewerWasm -c Release -o ./packages/pattern-viewer/assets -p:PublishTrimmed=true
+	dotnet publish PatternViewerWasm -c Release -o ./extensions/pattern-viewer/dist -p:PublishTrimmed=true
 	sh scripts/remove-blazor.sh pattern-viewer
 	@echo deployed
 

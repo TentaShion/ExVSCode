@@ -5,7 +5,7 @@
   "tasks": [
     {
       "label": "Build Pattern Viewer(watch)",
-      "path": "./packages/pattern-viewer/package.json",
+      "path": "./extensions/pattern-viewer/package.json",
       "type": "npm",
       "script": "watch",
       "problemMatcher": [
@@ -34,7 +34,7 @@
     },
     {
       "label": "Test Pattern Viewer(watch)",
-      "path": "./packages/pattern-viewer/package.json",
+      "path": "./extensions/pattern-viewer/package.json",
       "type": "npm",
       "script": "test-watch",
       "problemMatcher": "$tsc-watch",

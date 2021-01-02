@@ -1,6 +1,6 @@
 #!/bin/sh
 
-dirPath="packages/$1/assets/wwwroot/_framework"
+dirPath="extensions/$1/dist/wwwroot/_framework"
 for file in `\find ${dirPath} -maxdepth 1 -name '*.br'`;
 do
   path="${file%.*}"

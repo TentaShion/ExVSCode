@@ -2,7 +2,7 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "extensions/*"
   ],
   "devDependencies": {
     "@types/glob": "^7.1.3",

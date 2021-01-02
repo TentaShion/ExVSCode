@@ -10,10 +10,10 @@
       "type": "extensionHost",
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/packages/pattern-viewer"
+        "--extensionDevelopmentPath=${workspaceFolder}/extensions/pattern-viewer"
       ],
       "outFiles": [
-        "${workspaceFolder}/packages/pattern-viewer/dist/**/*.js"
+        "${workspaceFolder}/extensions/pattern-viewer/dist/**/*.js"
       ],
       "preLaunchTask": "Build Pattern Viewer(watch)"
     },
@@ -22,11 +22,11 @@
       "type": "extensionHost",
       "request": "launch",
       "args": [
-        "--extensionDevelopmentPath=${workspaceFolder}/packages/pattern-viewer",
-        "--extensionTestsPath=${workspaceFolder}/packages/pattern-viewer/out/test/suite/index"
+        "--extensionDevelopmentPath=${workspaceFolder}/extensions/pattern-viewer",
+        "--extensionTestsPath=${workspaceFolder}/extensions/pattern-viewer/out/test/suite/index"
       ],
       "outFiles": [
-        "${workspaceFolder}/packages/pattern-viewer/out/test/**/*.js"
+        "${workspaceFolder}/extensions/pattern-viewer/out/test/**/*.js"
       ],
       "preLaunchTask": "Test Pattern Viewer(watch)"
     }
