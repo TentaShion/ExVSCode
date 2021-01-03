@@ -13,13 +13,18 @@
   "publisher": "shion",
   "version": "0.0.1",
   "activationEvents": [
-    "onCommand:patternviewer.showHelloWasm"
+    "onCommand:patternviewer.showHelloWasm",
+    "onCommand:patternviewer.showMandelbrotWasm"
   ],
   "contributes": {
     "commands": [
       {
         "command": "patternviewer.showHelloWasm",
         "title": "Hello World from Wasm!"
+      },
+      {
+        "command": "patternviewer.showMandelbrotWasm",
+        "title": "Mandelbrot 集合(Wasm 版)"
       }
     ]
   },

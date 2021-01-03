@@ -2,6 +2,7 @@
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
 import { ShowHelloWasm } from "./features/show-hello-wasm.feature";
+import { ShowMandelbrotWasm } from "./features/show-mandelbrot-wasm.feature";
 import { ICommand } from './i.command';
 
 // this method is called when your extension is activated
@@ -18,6 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
   const extensionUri = context.extensionUri;
   Array.of<ICommand>(
     new ShowHelloWasm(extensionUri),
+    new ShowMandelbrotWasm(extensionUri),
   ).map(cmd =>
     vscode.commands.registerCommand(cmd.name, cmd.action)
   ).forEach(disposable =>
