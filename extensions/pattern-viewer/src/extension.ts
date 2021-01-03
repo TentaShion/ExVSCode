@@ -15,9 +15,10 @@ export function activate(context: vscode.ExtensionContext) {
   // The command has been defined in the package.json file
   // Now provide the implementation of the command with registerCommand
   // The commandId parameter must match the command field in package.json
-  Array.of(
-    new ShowHelloWasm(context),
-  ).map((cmd: ICommand) =>
+  const extensionUri = context.extensionUri;
+  Array.of<ICommand>(
+    new ShowHelloWasm(extensionUri),
+  ).map(cmd =>
     vscode.commands.registerCommand(cmd.name, cmd.action)
   ).forEach(disposable =>
     context.subscriptions.push(disposable)

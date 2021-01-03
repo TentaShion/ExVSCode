@@ -1,4 +1,4 @@
-import { ExtensionContext, Uri, ViewColumn, window } from "vscode";
+import { Uri, ViewColumn, window } from "vscode";
 import { ICommand } from "../i.command";
 
 /**
@@ -7,7 +7,7 @@ import { ICommand } from "../i.command";
 export class ShowHelloWasm implements ICommand {
 
   constructor(
-    private readonly context: ExtensionContext,
+    public readonly extensionUri: Uri,
   ) {
   }
 
@@ -16,15 +16,15 @@ export class ShowHelloWasm implements ICommand {
   action = (...args: any[]) => {
     const panel = window.createWebviewPanel(
       this.name,
-      'PatternViewer',
+      this.title,
       ViewColumn.One,
       {
         enableScripts: true
       },
     );
 
-    const basePath = panel.webview.asWebviewUri(Uri.joinPath(this.context.extensionUri, 'dist', 'wwwroot', '_framework'));
-    const wasmPath = panel.webview.asWebviewUri(Uri.joinPath(this.context.extensionUri, 'dist', 'wwwroot', '_framework', 'blazor.webassembly.js'));
+    const basePath = panel.webview.asWebviewUri(Uri.joinPath(this.extensionUri, 'dist', 'wwwroot', '_framework'));
+    const wasmPath = panel.webview.asWebviewUri(Uri.joinPath(this.extensionUri, 'dist', 'wwwroot', '_framework', 'blazor.webassembly.js'));
 
     panel.webview.html = `
     <!DOCTYPE html>
@@ -32,7 +32,7 @@ export class ShowHelloWasm implements ICommand {
     <head>
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-      <title>PatternViewer</title>
+      <title>${this.title}</title>
       <base href="${basePath}" />
     </head>
     <body>
@@ -58,5 +58,5 @@ export class ShowHelloWasm implements ICommand {
   name = "patternviewer.showHelloWasm";
 
   /** ページ名 */
-  readonly title = "Wasm からこんにちは！";
+  private readonly title = "Wasm からこんにちは！";
 }
