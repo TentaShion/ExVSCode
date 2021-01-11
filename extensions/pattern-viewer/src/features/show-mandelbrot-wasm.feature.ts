@@ -75,9 +75,9 @@ export class ShowMandelbrotWasm implements ICommand {
               for (let y = 0; y < ${ partitionCount }; y++) {
                 for (let x = 0; x < ${ partitionCount }; x++) {
                   let index = 4 * (y * ${ partitionCount } + x);
-                  imageData.data[index + 0] = result[y][x] * 255;
-                  imageData.data[index + 1] = result[y][x] * 255;
-                  imageData.data[index + 2] = result[y][x] * 255;
+                  imageData.data[index + 0] = 255 - result[y][x] * 255;
+                  imageData.data[index + 1] = 255 - result[y][x] * 255;
+                  imageData.data[index + 2] = 255 - result[y][x] * 255;
                   imageData.data[index + 3] = 255;
                 }
               }

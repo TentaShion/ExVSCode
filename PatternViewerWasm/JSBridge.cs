@@ -1,8 +1,6 @@
 using Microsoft.JSInterop;
 using PatternViewerWasm.Entities;
 using PatternViewerWasm.Models;
-using System.Collections.Generic;
-using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
 
@@ -45,10 +43,6 @@ namespace PatternViewerWasm
 
             var model = new GraphModel();
             var result = model.CaluclateMandelbrotSet(condition);
-
-            // var mapped = Enumerable.Range(0, result.GetLength(1))
-            //     .Select(x => result[0, x])
-            //     .ToArray();
 
             return Task.FromResult(result);
         }
