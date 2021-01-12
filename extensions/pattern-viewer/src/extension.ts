@@ -1,6 +1,7 @@
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
+import { ShowGumowskimiraWasm } from './features/show-gumowskimira-wasm.feature';
 import { ShowHelloWasm } from "./features/show-hello-wasm.feature";
 import { ShowMandelbrotWasm } from "./features/show-mandelbrot-wasm.feature";
 import { ICommand } from './i.command';
@@ -18,6 +19,7 @@ export function activate(context: vscode.ExtensionContext) {
   // The commandId parameter must match the command field in package.json
   const extensionUri = context.extensionUri;
   Array.of<ICommand>(
+    new ShowGumowskimiraWasm(extensionUri),
     new ShowHelloWasm(extensionUri),
     new ShowMandelbrotWasm(extensionUri),
   ).map(cmd =>

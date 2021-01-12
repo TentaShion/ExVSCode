@@ -12,6 +12,35 @@ namespace PatternViewerWasm
     public class JSBridge
     {
         /// <summary>
+        /// Gumowski Mira 写像生成の呼び出し
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="giveUpBorder">最大計算回数</param>
+        /// <param name="mu"></param>
+        /// <param name="partitionCount">座標の分割数</param>
+        [JSInvokable]
+        public static Task<int[][]> CallGumowskiMiraMaker(
+            double a,
+            int giveUpBorder,
+            double mu,
+            int partitionCount
+        )
+        {
+            var condition = new GumowskiMiraEntity
+            {
+                A = a,
+                GiveUpBorder = giveUpBorder,
+                Mu = mu,
+                PartitionCount = partitionCount
+            };
+
+            var model = new GraphModel();
+            var result = model.CaluclateGumowskiMira(condition);
+
+            return Task.FromResult(result);
+        }
+
+        /// <summary>
         /// マンデルブロ集合生成の呼び出し
         /// </summary>
         /// <param name="divergenceBorder">発散判定のための閾値</param>

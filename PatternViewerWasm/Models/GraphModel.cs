@@ -7,6 +7,44 @@ namespace PatternViewerWasm.Models
     public class GraphModel
     {
         /// <summary>
+        /// Gumowski Mira の算出
+        /// </summary>
+        public int[][] CaluclateGumowskiMira(GumowskiMiraEntity condition)
+        {
+            var a = condition.A;
+            var mu = condition.Mu;
+            var u = new double[condition.GiveUpBorder];
+            var v = new double[condition.GiveUpBorder];
+
+            u[0] = 0.1;
+            v[0] = 0.1;
+            for (var t = 1; t < condition.GiveUpBorder; t++)
+            {
+                u[t] = v[t - 1] + v[t - 1] * a * (1 - 0.05 * v[t - 1] * v[t - 1]) + mu * u[t - 1] + (2 * (1 - mu) * u[t - 1] * u[t - 1]) / (1 + u[t - 1] * u[t - 1]);
+                v[t] = -u[t - 1] + mu * u[t] + (2 * (1 - mu) * u[t] * u[t]) / (1 + u[t] * u[t]);
+            }
+            var umin = u.Min();
+            var vmin = v.Min();
+
+            var result = new int[condition.PartitionCount][];
+            for (var y = 0; y < condition.PartitionCount; y++)
+            {
+                result[y] = new int[condition.PartitionCount];
+            }
+
+            var scale = condition.GiveUpBorder - 1;
+            var uscale = u.Max() - umin;
+            var vscale = v.Max() - vmin;
+            for (var t = 1; t < condition.GiveUpBorder; t++)
+            {
+                var x = (int)(scale * (u[t] - umin) / uscale);
+                var y = (int)(scale * (v[t] - vmin) / vscale);
+                result[y][x] = 1;
+            }
+            return result;
+        }
+
+        /// <summary>
         /// マンデルブロ集合の算出
         /// </summary>
         public int[][] CaluclateMandelbrotSet(MandelbrotEntity condition)

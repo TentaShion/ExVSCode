@@ -13,11 +13,16 @@
   "publisher": "shion",
   "version": "0.0.1",
   "activationEvents": [
+    "onCommand:patternviewer.showGumowskimiraWasm",
     "onCommand:patternviewer.showHelloWasm",
     "onCommand:patternviewer.showMandelbrotWasm"
   ],
   "contributes": {
     "commands": [
+      {
+        "command": "patternviewer.showGumowskimiraWasm",
+        "title": "Gumowskimira 写像(Wasm 版)"
+      },
       {
         "command": "patternviewer.showHelloWasm",
         "title": "Hello World from Wasm!"
